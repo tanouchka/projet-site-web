@@ -1,4 +1,4 @@
-<!-- index.php -->
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,8 +13,8 @@
         <h1>Bienvenue sur le site de Running de l'ESIGELEC</h1>
         <p>Rejoignez nos sessions de running et progressez ensemble !</p>
         <div class="buttons">
-            <a href="pages/register.php" class="btn">S'inscrire</a>
-            <a href="pages/login.php" class="btn">Se connecter</a>
+            <a href="inscription.php" class="btn">S'inscrire</a>
+            <a href="connexion.php" class="btn">Se connecter</a>
         </div>
     </main>
 
