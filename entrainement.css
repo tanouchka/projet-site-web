@@ -1,0 +1,95 @@
+/* Général */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* En-tête */
+#page-title {
+    text-align: center;
+    margin-top: 30px;
+    color: #333;
+}
+
+/* Formulaire */
+#entrainement-form {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* Éléments de formulaire */
+#entrainement-form label {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    display: inline-block;
+    color: #333;
+}
+
+#entrainement-form input[type="text"],
+#entrainement-form input[type="number"],
+#entrainement-form input[type="date"],
+#entrainement-form textarea,
+#entrainement-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+#entrainement-form input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#entrainement-form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Espacement */
+br {
+    line-height: 1.5;
+}
+
+/* Marges */
+#entrainement-form input[type="text"],
+#entrainement-form input[type="number"],
+#entrainement-form input[type="date"],
+#entrainement-form textarea,
+#entrainement-form select {
+    margin-bottom: 15px;
+}
+
+/* Message de succès / erreur */
+div.success, div.error {
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+div.success {
+    background-color: #dff0d8;
+    color: #3c763d;
+}
+
+div.error {
+    background-color: #f2dede;
+    color: #a94442;
+}
