@@ -3,7 +3,7 @@
 session_start(); 
 // Fonction de connexion à la base de données
 function connectDB() {
-    require_once("connexion_bdd.php");
+    require_once("connexion-bdd.php");
     $mysqli = new mysqli($host, $login, $passwd, $dbname);
     if ($mysqli->connect_error) {
         die('Erreur de connexion (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);

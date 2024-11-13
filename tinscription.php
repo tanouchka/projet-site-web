@@ -18,14 +18,14 @@ $database = "bdd_7_10";
 
 
 // Créer une connexion
-$conn = new mysqli($servername, $username, $passwords, $database);
+$conn = mysqli_connect($servername, $username, $passwords, $database);
 
-
+//$conn = new mysqli
 
 
 // Vérifier la connexion
 if ($conn->connect_error) {
-    die("La connexion à la base de données a échoué : " . $conn->connect_error);
+    die( "La connexion à la base de données a échoué : " . $conn->connect_error);
 } 
 else 
 {
