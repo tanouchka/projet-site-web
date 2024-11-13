@@ -4,18 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-UA-compatible" content="IE=edge">
-    <meta name="viexport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $Accueil_ESIGELEC_Running; ?></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil-ESIGELEC Running</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/font-awesome.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<?php 
-        $titre_page = "page d'acceuil";
-        include 'header.inc.php';
-?>
 
 <body>
+    <?php 
+        $titre_page = "page d'acceuil";
+        include 'header.inc.php';
+    ?>
+
+
     
 
     <main>
