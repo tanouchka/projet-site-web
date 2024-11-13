@@ -30,12 +30,12 @@
                     display: block;
                     margin-bottom: 10px;
                     text-align: center;
-                    color:white;
+                    color:black;
                 }
                 h1{
-                color:white;}
+                color:black;}
                 p{
-                color:white;
+                color:black;
                 text-align: center;
                 }
                 input {
@@ -59,6 +59,8 @@
         
         <body>
             <h1>Authentification</h1>
+            <a href="accueil1.php">Retour à la Page d'Accueil</a>
+    
             <P>saisissez vos informations</P>
             <form action="ttconnexion.php"  method="POST" >
                 <label for="email">Identifiant:</label>
