@@ -11,11 +11,8 @@ $password = $_POST['password'];
 $statut = "membre";
 
 $servername = "localhost";
-$username = "grp_7_10"; // L'utilisateur par défaut de MySQL dans XAMPP
-$passwords = "D3UOxuGXIXUJih"; // Laissez le mot de passe vide par défaut
-
-
-// Nom de la base de données que vous avez créée dans phpMyAdmin
+$username = "grp_7_10";
+$passwords = "D3UOxuGXIXUJih";
 $database = "bdd_7_10";
 
 
