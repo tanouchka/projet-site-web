@@ -10,15 +10,15 @@ $password = $_POST['password'];
 //pour la vérification du statut
 $statut = "membre";
 
-$servername = "localhost";
-$username = "grp_7_10";
-$passwords = "D3UOxuGXIXUJih";
+$host = "localhost";
+$login = "grp_7_10";
+$passwd = "D3UOxuGXIXUJih";
 $database = "bdd_7_10";
 
 
 
 // Créer une connexion
-$conn = mysqli_connect($servername, $username, $passwords, $database);
+$conn = mysqli_connect($host, $login, $passwd, $database);
 
 //$conn = new mysqli
 
