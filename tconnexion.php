@@ -3,7 +3,7 @@
 session_start(); 
 // Fonction de connexion à la base de données
 function connectDB() {
-    require_once("param.inc.php");
+    require_once("connexion_bdd.php");
     $mysqli = new mysqli($host, $login, $passwd, $dbname);
     if ($mysqli->connect_error) {
         die('Erreur de connexion (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
@@ -38,7 +38,7 @@ if ($stmt = $mysqli->prepare("SELECT password, statut FROM utilisateur WHERE ema
             if ($row["statut"] == "admin") {
                 header('Location:admin.php');
             } elseif ($row["statut"] == "membre") {
-                header('Location:sessionmembre.php');
+                header('Location:membre.php');
             } else {
                 
                 redirectTo('accueil1.php', 'Authentification réussie pour un rôle inconnu.');
@@ -48,10 +48,10 @@ if ($stmt = $mysqli->prepare("SELECT password, statut FROM utilisateur WHERE ema
             redirectTo('accueil1.php', 'Mot de passe incorrect.');
         }
     } else {
-        redirectTo('index.php', 'Identifiant inexistant.');
+        redirectTo('accueil.php', 'Identifiant inexistant.');
     }
 } else {
     // En cas d'erreur de préparation de la requête
-    redirectTo('sessionmembre.php', 'Erreur lors de l\'authentification.');
+    redirectTo('membre.php', 'Erreur lors de l\'authentification.');
 }
 ?>

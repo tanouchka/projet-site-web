@@ -91,7 +91,7 @@
          <a href="apropos.php"><button>A propos</button></a>
    
          <a href="admin.php"><button>admin</button></a>
-         <a href="sessionmembre.php"><button>membre</button></a>
+         <a href="membre.php"><button>membre</button></a>
       </div> 
       <div class="game-section">
          <h2>Jeux Populaires</h2>

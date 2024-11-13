@@ -62,7 +62,7 @@
             <a href="accueil1.php">Retour à la Page d'Accueil</a>
     
             <P>saisissez vos informations</P>
-            <form action="ttconnexion.php"  method="POST" >
+            <form action="tconnexion.php"  method="POST" >
                 <label for="email">Identifiant:</label>
                 <input type="text" id="email" name = "email" required>
                 <br>
