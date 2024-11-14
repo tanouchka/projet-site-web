@@ -11,14 +11,14 @@ $password = $_POST['password'];
 $statut = "membre";
 
 $host = "localhost";
-$login = "root";
-$passwd = "root";
+$login = "grp_7_10";
+$passwd = "D3UOxuGXIXUJih";
 $database = "bdd_7_10";
 
 
 
 // Créer une connexion
-$conn = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_donnée);
+$conn = mysqli_connect($host, $login, $passwd, $database);
 
 //$conn = new mysqli
 
