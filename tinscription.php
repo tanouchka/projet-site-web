@@ -11,8 +11,8 @@ $password = $_POST['password'];
 $statut = "membre";
 
 $host = "localhost";
-$login = "root";
-$passwd = "root";
+$login = "grp_7_10";
+$passwd = "D3UOxuGXIXUJih";
 $database = "bdd_7_10";
 
 
