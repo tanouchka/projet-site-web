@@ -10,11 +10,10 @@ $password = $_POST['password'];
 //pour la vérification du statut
 $statut = "membre";
 
-// Connexion à la base de données
-$nom_serveur = "localhost";
-$utilisateur = "grp_7_10";
-$mot_de_passe = "D3UOxuGXIXUJih";
-$nom_base_donnée = "bdd_7_10";
+$host = "localhost";
+$login = "root";
+$passwd = "root";
+$database = "bdd_7_10";
 
 
 
