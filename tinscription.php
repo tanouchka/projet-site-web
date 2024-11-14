@@ -10,15 +10,16 @@ $password = $_POST['password'];
 //pour la vérification du statut
 $statut = "membre";
 
-$host = "localhost";
-$login = "root";
-$passwd = "root";
-$database = "bdd_7_10";
+// Connexion à la base de données
+$nom_serveur = "localhost";
+$utilisateur = "grp_7_10";
+$mot_de_passe = "D3UOxuGXIXUJih";
+$nom_base_donnée = "bdd_7_10";
 
 
 
 // Créer une connexion
-$conn = mysqli_connect($host, $login, $passwd, $database);
+$conn = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_donnée);
 
 //$conn = new mysqli
 
