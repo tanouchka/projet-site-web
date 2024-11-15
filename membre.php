@@ -8,7 +8,12 @@ session_start();
 }*/
 
 // Inclure la connexion à la base de données et d'autres fichiers nécessaires
-include('connexion-bdd.php'); // Assurez-vous d'adapter le nom du fichier selon votre configuration
+// include('connexion-bdd.php'); // Assurez-vous d'adapter le nom du fichier selon votre configuration
+// Connexion à la base de données
+$nom_serveur = "localhost";
+$utilisateur = "grp_7_10";
+$mot_de_passe = "D3UOxuGXIXUJih";
+$nom_base_donnée = "bdd_7_10";
 
 $mysqli = new mysqli($host, $login, $passwd, $dbname);
 // Récupérer la liste complète des jeux depuis la base de données

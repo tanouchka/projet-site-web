@@ -16,9 +16,9 @@ $email = $_SESSION['email']; // Assurez-vous que l'email est bien défini
 
 // Connexion à la base de données
 $nom_serveur = "localhost";
-$utilisateur = "root";
-$mot_de_passe = "root";
-$nom_base_donnée = "sport";
+$utilisateur = "grp_7_10";
+$mot_de_passe = "D3UOxuGXIXUJih";
+$nom_base_donnée = "bdd_7_10";
 
 $conn = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_donnée);
 
