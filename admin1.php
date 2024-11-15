@@ -8,18 +8,13 @@ session_start();
 }*/
 
 // Inclure la connexion à la base de données et d'autres fichiers nécessaires
-// include('connexion-bdd.php'); // Assurez-vous d'adapter le nom du fichier selon votre configuration
-// Connexion à la base de données
-$servername = "localhost";
-$username = "root";
-$passwords = "root";
-$database = "run";
+include('connexion.bdd.php'); // Assurez-vous d'adapter le nom du fichier selon votre configuration
 
-$mysqli = new mysqli($servername, $username, $passwords, $database);
-//$conn = new mysqli($servername, $username, $passwords, $database);
+$mysqli = new mysqli($host, $login, $passwd, $dbname);
 // Récupérer la liste complète des jeux depuis la base de données
 $query = "SELECT * FROM jeu";
 $resultat = $mysqli->query($query);
+
 ?>
 
 <!DOCTYPE html>
@@ -130,15 +125,15 @@ $resultat = $mysqli->query($query);
     <p>Que souhaitez-vous faire?</p>
 
     <!-- Liens vers les pages spécifiques pour les membres -->
-    <ul>
-
-        <li><a href="choixjeu.php">acceder à la liste des entrainements</a></li>/*indique les jeux auquels il souhaite jouer*/
-        <li><a href="jeux_a_venir.php">jeux à venir</a></li>
-        <li><a href="historique.php">historique</a></li>
+   <div>
+     <ul>
+        <li><a href="pcjeux.php">prendre en charge un jeu</a></li>
+        <li><a href="jeux_souhaitees.php">liste de jeux des membres</a></li> <!--proposition de créneau dedans, annulation des créneaux(tout en prévénant le joueur dans ce cas) -->
+        <li><a href="admincree.php">creer un compte admin</a></li>
     
-    </ul>
-
+     </ul>
+    </div>
     <!-- Ajoutez le pied de page et tout autre contenu supplémentaire ici -->
 
    
-<body>
+<body></body>
