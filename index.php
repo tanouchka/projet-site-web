@@ -86,8 +86,8 @@
    <main>
       <div class="button-container">
  
-         <a href="connexion1.php"><button>S'authentifier</button></a> 
-         <a href="inscription1.html"><button>S'inscrire</button></a>
+         <a href="connexion.php"><button>S'authentifier</button></a> 
+         <a href="inscription.html"><button>S'inscrire</button></a>
          <a href="apropos.php"><button>A propos</button></a>
    
          <a href="admin.php"><button>admin</button></a>

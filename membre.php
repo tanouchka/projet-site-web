@@ -18,7 +18,7 @@ $database = "run";
 $mysqli = new mysqli($servername, $username, $passwords, $database);
 //$conn = new mysqli($servername, $username, $passwords, $database);
 // Récupérer la liste complète des jeux depuis la base de données
-$query = "SELECT * FROM jeu";
+$query = "SELECT * FROM run";
 $resultat = $mysqli->query($query);
 ?>
 
@@ -28,7 +28,7 @@ $resultat = $mysqli->query($query);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page d'accueil Membre</title>
+    <title>Page d'accueil utilisateur</title>
     <!-- Ajoutez des liens vers vos fichiers CSS et autres ressources ici -->
     <style>
          body {

@@ -1,79 +1,79 @@
-<?php
-// Démarre la session
-session_start();
+<!DOCTYPE html><html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Connexion</title>
+            <style>
+                body {
+             font-family: Arial, sans-serif;
+             margin: 0;
+             padding: 0;
+             background-image: url('background other 2.0.png');
+             background-size: cover;
+             background-position: center;
+             background-repeat: no-repeat;
+             height: 100vh;
+             overflow: hidden;
+          }
+    
+                        form {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100vh; /* utilise 100% de la hauteur de la vue */
+                    margin: 0; /* supprime les marges par défaut du corps de la page */
+                }
 
-// Vérifie si le formulaire est soumis
-if (isset($_POST['Connexion'])) {
-    // Récupère les données du formulaire
-    $email = $_POST['email'];
-    $mdp = $_POST['mdp'];
-    $erreur = "";
+    
+                label {
+                    display: block;
+                    margin-bottom: 10px;
+                    text-align: center;
+                    color:black;
+                }
+                h1{
+                color:black;}
+                p{
+                color:black;
+                text-align: center;
+                }
+                input {
+                    padding: 8px;
+                    margin-bottom: 10px;
+                    text-align: center;
+                }
+    
+                button {
+                    padding: 10px;
+                    font-size: 16px;
+                }
+    
+                 /* Style pour l'icône mobile */
+                #result {
+                    margin-top: 20px;
+                    color: red;
+                }
+            </style>
+        </head>
+        
+        <body>
+            <h1>Authentification</h1>
+            <a href="accueil.php">Retour à la Page d'Accueil</a>
+    
+            <P>saisissez vos informations</P>
+            <form action="tconnexion.php"  method="POST" >
+                <label for="email">Identifiant:</label>
+                <input type="text" id="email" name = "email" required>
+                <br>
+                <label for="password">Mot de passe:</label>
+                <input type="password" id="password" name = "password" required>
+                <br>
+                <button class="btn btn-outline-primary" type="submit">Se connecter</button>
+            </form>
 
-    // Connexion à la base de données
-    $nom_serveur = "localhost";
-    $utilisateur = "grp_7_10";
-    $mot_de_passe = "D3UOxuGXIXUJih";
-    $nom_base_donnée = "bdd_7_10";
-    $con = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_donnée);
-
-    if (!$con) {
-        die("Erreur de connexion : " . mysqli_connect_error());
-    }
-
-    // Requête pour vérifier si l'utilisateur existe
-    $loginQuery = "SELECT * FROM utilisateurs WHERE email='$email' AND mdp='$mdp'";
-    $loginResult = mysqli_query($con, $loginQuery);
-
-    if (mysqli_num_rows($loginResult) > 0) {
-        // L'utilisateur est authentifié, on crée la session
-        $_SESSION['email'] = $email;
-
-        // Vérifie le rôle en fonction de l'email
-        if (strpos($email, '@groupe-esigelec.org') !== false) {
-            // Redirige vers la page admin pour les administrateurs
-            header("Location: admin.php");
-        } elseif (strpos($email, '@gmail.com') !== false) {
-            // Redirige vers la page d'accueil pour les membres
-            header("Location: accueil.php");
-        } else {
-            // Redirection par défaut en cas de domaine inconnu (peut être ajustée selon votre logique)
-            header("Location: accueil.php");
-        }
-        exit();
-    } else {
-        // Erreur de connexion
-        $erreur = "Identifiants incorrects. Veuillez réessayer.";
-    }
-
-    // Ferme la connexion à la base de données
-    mysqli_close($con);
-}
-?>
-
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion</title>
-    <link rel="stylesheet" href="acceuil.css">
-</head>
-<body>
-
-<section>
-    <h1>Connexion</h1>
-    <?php 
-    if (isset($erreur)) { // Affiche l'erreur si elle existe
-        echo "<p class='Erreur'>$erreur</p>";
-    }
-    ?>
-    <form action="" method="POST">
-        <label>Adresse Mail</label>
-        <input type="email" name="email" required>
-        <label>Mot de Passe</label>
-        <input type="password" name="mdp" required>
-        <input type="submit" name="Connexion" value="Se connecter">
-    </form>
-</section>
-</body>
-</html>
+            
+            
+        </body>
+    </html>
+    

@@ -41,11 +41,11 @@ if ($stmt = $mysqli->prepare("SELECT password, statut FROM utilisateur WHERE ema
                 header('Location:membre.php');
             } else {
                 
-                redirectTo('accueil1.php', 'Authentification réussie pour un rôle inconnu.');
+                redirectTo('accueil.php', 'Authentification réussie pour un rôle inconnu.');
             }
         } else {
             echo '<script>alert("Ceci est un message d\'alerte en PHP!");</script>';
-            redirectTo('accueil1.php', 'Mot de passe incorrect.');
+            redirectTo('accueil.php', 'Mot de passe incorrect.');
         }
     } else {
         redirectTo('accueil.php', 'Identifiant inexistant.');

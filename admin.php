@@ -1,196 +1,140 @@
 <?php
-// Démarre la session si elle n'est pas déjà démarrée
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-// Vérifie si l'utilisateur est connecté
-if (!isset($_SESSION['email'])) {
-    // Redirige vers la page de connexion si l'utilisateur n'est pas connecté
+// Vérifier si l'utilisateur est connecté
+session_start();
+/*if (!isset($_SESSION['id_utilisateur'])) {
+    // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
     header("Location: connexion.php");
     exit();
-}
+}*/
+$servername = "localhost";
+$username = "root";
+$passwords = "root";
+$database = "run";
 
-// Connexion à la base de données
-$nom_serveur = "localhost";
-$utilisateur = "grp_7_10";
-$mot_de_passe = "D3UOxuGXIXUJih";
-$nom_base_donnée = "bdd_7_10";
-
-$conn = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_donnée);
-
-// Vérifiez la connexion
-if (!$conn) {
-    die("Échec de la connexion : " . mysqli_connect_error());
-}
-
-// Requête pour récupérer les participants et leurs entraînements
-$query = "SELECT p.email, e.nom AS entrainement_nom, e.date AS entrainement_date 
-          FROM participant p 
-          JOIN entrainements e ON p.id_entrainement = e.id_entrainement";
-
-$result = mysqli_query($conn, $query);
-
-// Vérifie si des participants ont été trouvés et réorganise les données
-$participants = [];
-if ($result) {
-    while ($row = mysqli_fetch_assoc($result)) {
-        $email = $row['email'];
-        if (!isset($participants[$email])) {
-            $participants[$email] = [];
-        }
-        $participants[$email][] = [
-            'entrainement_nom' => $row['entrainement_nom'],
-            'entrainement_date' => $row['entrainement_date']
-        ];
-    }
-} else {
-    echo "Erreur dans la requête : " . mysqli_error($conn);
-}
-
-// Fermeture de la connexion
-mysqli_close($conn);
+$mysqli = new mysqli($servername, $username, $passwords, $database);
+//$conn = new mysqli($servername, $username, $passwords, $database);
+// Récupérer la liste complète des jeux depuis la base de données
+$query = "SELECT * FROM jeu";
+$resultat = $mysqli->query($query);
 ?>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administration - Participants</title>
+    <title>Page d'accueil admin</title>
+    <!-- Ajoutez des liens vers vos fichiers CSS et autres ressources ici -->
     <style>
-        /* Style pour le corps de la page */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    margin: 0;
-    padding: 0;
-}
+         body {
+         font-family: Arial, sans-serif;
+         margin: 0;
+         padding: 0;
+         background-image: url('background other 2.0.png');
+         background-size: cover;
+         background-position: center;
+         background-repeat: no-repeat;
+         height: 100vh;
+         overflow: hidden;
 
-/* Style de l'en-tête */
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #007bff;
-    padding: 15px;
-    color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        }
+        header {
+         text-align: center;
+         padding: 10px;
+         background-color: #f2f2f2;
+        }
+        main {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         height: 100%;
+         color: white;
+        }
+        .button-container {
+         width: 60vw;
+         max-width: 600px;
+         height: 40vh;
+         display: flex;
+         justify-content: space-between;
+         align-items: flex-start;
+         font-size: 4vw;
+        }
 
-.header-welcome {
-    font-size: 20px;
-    margin: 0;
-}
+        button {    
+         font-size: 2vw; 
+         font-weight: lighter;
+         color: white;
+         padding: 2vh 5vw;
+         background: #000000;
+         outline: none;
+         cursor: pointer;
+         border: none;
+         border-radius: 2vw; 
+         box-shadow: 0 1vh #000000;
+         padding: 10px;
+        }
+        .game-section {
+         margin-top: 20px;
+         text-align: center;
+        }
 
-/* Style pour le lien de déconnexion */
-header nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 8px 15px;
-    border: 1px solid white;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
+        .game-image {
+         max-width: 50px; /* Réduire davantage la largeur de l'image */
+         max-height: 50px; /* Réduire la hauteur de l'image */
+         margin: 5px; /* Ajouter une marge autour de l'image */
+        }
 
-header nav a:hover {
-    background-color: white;
-    color: #007bff;
-}
+        @media (max-width: 600px) {
+         .button-container {
+            font-size: 8vw;
+         }
+        }
 
-/* Espace pour le contenu principal, à cause de l'en-tête fixe */
-section {
-    margin-top: 80px; /* Ajuste selon la hauteur de l'en-tête */
-    padding: 20px;
-    text-align: center;
-}
-
-/* Style du titre principal */
-section h2 {
-    font-size: 24px;
-    color: #333;
-}
-
-/* Style du tableau des participants */
-table {
-    width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
-}
-
-table th, table td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #ddd;
-}
-
-table th {
-    background-color: #007bff;
-    color: white;
-}
-
-/* Style des éléments de la liste */
-ul {
-    list-style-type: disc;
-    padding-left: 20px;
-    text-align: left;
-}
-
-ul li {
-    margin-bottom: 20px;
-}
-
-/* Style du titre d'email */
-h3 {
-    font-size: 18px;
-    color: #007bff;
-    margin-bottom: 10px;
-}
+        label{
+            color:white;
+        }
+        h1{
+            color:white;
+        }
+        p{
+            color:white;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input {
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        
+        #result {
+            margin-top: 20px;
+            color: green;
+        }
     </style>
-    <!-- <link rel="stylesheet" href="admin.css"> -->
 </head>
 <body>
-<header>
-    <h1>Administration des Participants</h1>
-    <nav>
-        <a href="deconnexion.php">Déconnexion</a>
-        <a href="accueil.php">Retour à l'accueil</a>
-    </nav>
-</header>
+    <!-- Ajoutez l'en-tête de la page et tout autre élément de navigation ici -->
+    <h1>bon retour!</h1>
+    <p>Que souhaitez-vous faire?</p>
 
-<section>
-    <h2>Liste des Participants</h2>
-    <?php if (empty($participants)): ?>
-        <p>Aucun participant inscrit.</p>
-    <?php else: ?>
-        <ul>
-            <?php foreach ($participants as $email => $entrainements): ?>
-                <li>
-                    <h3><?php echo htmlspecialchars($email); ?></h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Entraînement</th>
-                                <th>Date de l'entraînement</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($entrainements as $entrainement): ?>
-                                <tr>
-                                    <td><?php echo htmlspecialchars($entrainement['entrainement_nom']); ?></td>
-                                    <td><?php echo htmlspecialchars($entrainement['entrainement_date']); ?></td>
-                                </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    <?php endif; ?>
-</section>
-</body>
-</html>
+    <!-- Liens vers les pages spécifiques pour les membres -->
+   <div>
+     <ul>
+        <li><a href="pcrun.php">prendre en charge un entrainement</a></li>
+        <li><a href="jeux_souhaitees.php">liste d'inscrits aux entrainements</a></li> <!--proposition de créneau dedans, annulation des créneaux(tout en prévénant le joueur dans ce cas) -->
+        <li><a href="admincree.php">creer un compte admin</a></li>
+    
+     </ul>
+    </div>
+    <!-- Ajoutez le pied de page et tout autre contenu supplémentaire ici -->
+
+   
+<body></body>
