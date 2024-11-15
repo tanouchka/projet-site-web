@@ -1,3 +1,4 @@
+
 <?php
 
 
@@ -10,22 +11,25 @@ $password = $_POST['password'];
 //pour la vérification du statut
 $statut = "membre";
 
-$host = "localhost";
-$login = "grp_7_10";
-$passwd = "D3UOxuGXIXUJih";
+$servername = "localhost";
+$username = "grp_7_10"; // L'utilisateur par défaut de MySQL dans XAMPP
+$passwords = "D3UOxuGXIXUJih"; // Laissez le mot de passe vide par défaut
+
+
+// Nom de la base de données que vous avez créée dans phpMyAdmin
 $database = "bdd_7_10";
 
 
 
 // Créer une connexion
-$conn = mysqli_connect($host, $login, $passwd, $database);
+$conn = new mysqli($servername, $username, $passwords, $database);
 
-//$conn = new mysqli
+
 
 
 // Vérifier la connexion
 if ($conn->connect_error) {
-    die( "La connexion à la base de données a échoué : " . $conn->connect_error);
+    die("La connexion à la base de données a échoué : " . $conn->connect_error);
 } 
 else 
 {
