@@ -1,4 +1,4 @@
-<?php
+
 // Démarre la session si elle n'est pas déjà démarrée
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -14,12 +14,12 @@ if (!isset($_SESSION['email'])) {
 
 <?php
 // Connexion à la base de données
-$nom_serveur = "localhost";
-$utilisateur = "grp_7_10";
-$mot_de_passe = "D3UOxuGXIXUJih";
-$nom_base_donnée = "bdd_7_10";
+$host = "localhost";
+$login = "root";
+$passwd = "root";
+$database = "run";
 
-$con = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_donnée);
+$con = mysqli_connect($host, $login, $passwd, $database);
 
 // Vérification de la connexion
 if (!$con) {
@@ -30,11 +30,11 @@ if (!$con) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nom = mysqli_real_escape_string($con, $_POST['nom']);
     $description = mysqli_real_escape_string($con, $_POST['description']);
-    $duree = (int)$_POST['duree'];
-    $date = mysqli_real_escape_string($con, $_POST['date']);
-    $niveau = mysqli_real_escape_string($con, $_POST['niveau']);
+    $categorie = (int)$_POST['categorie'];
+    $date = mysqli_real_escape_string($con, $_POST['date_et_heure']);
+    $nombre = mysqli_real_escape_string($con, string: $_POST['nombre_max_de_participants']);
 
-    $requete = "INSERT INTO entrainements (nom, description, duree, date, niveau) VALUES ('$nom', '$description', '$duree', '$date', '$niveau')";
+    $requete = "INSERT INTO entrainements (nom, description, categorie, date_et_heure, nombre_max_de_participants) VALUES ('$nom', '$description', '$categorie', '$date', '$nombre')";
 
     if (mysqli_query($con, $requete)) {
         echo "Entraînement ajouté avec succès !";
@@ -210,14 +210,14 @@ div.error {
         <label for="description" id="label-description">Description :</label>
         <textarea id="description" name="description"></textarea><br><br>
 
-        <label for="duree" id="label-duree">Durée (Heure) :</label>
-        <input type="number" id="duree" name="duree" required><br><br>
+        <label for="nombre" id="label-duree">nombre max de participants :</label>
+        <input type="int" id="nombre" name="nombre" required><br><br>
 
-        <label for="date" id="label-date">Date :</label>
-        <input type="date" id="date" name="date" required><br><br>
+        <label for="date" id="label-date">Date et heure :</label>
+        <input type="dateetheure" id="date" name="date" required><br><br>
 
-        <label for="niveau" id="label-niveau">Niveau :</label>
-        <select id="niveau" name="niveau" required>
+        <label for="categorie" id="label-niveau">categorie :</label>
+        <select id="categorie" name="categorie" required>
             <option value="Débutant">Débutant</option>
             <option value="Moyen">Moyen</option>
             <option value="Expert">Expert</option>

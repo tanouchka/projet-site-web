@@ -132,8 +132,7 @@ $resultat = $mysqli->query($query);
     <!-- Liens vers les pages spécifiques pour les membres -->
     <ul>
 
-        <li><a href="choixjeu.php">acceder à la liste des entrainements</a></li>/*indique les jeux auquels il souhaite jouer*/
-        <li><a href="jeux_a_venir.php">jeux à venir</a></li>
+        <li><a href="choixjeu.php">acceder à la liste des entrainements</a></li>/*pouvoir s'inscrire se desinscrire*/
         <li><a href="historique.php">historique</a></li>
     
     </ul>
