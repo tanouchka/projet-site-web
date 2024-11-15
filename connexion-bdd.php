@@ -3,9 +3,9 @@
 
 // Informations de connexion à la base de données
 $host = "localhost"; // Adresse du serveur MySQL
-$login = "grp_7_10"; // Nom d'utilisateur MySQL
-$passwd = "D3UOxuGXIXUJih"; // Mot de passe MySQL
-$database = "bdd_7_10"; // Nom de la base de données
+$login = "root"; // Nom d'utilisateur MySQL
+$passwd = "root"; // Mot de passe MySQL
+$database = "run"; // Nom de la base de données
 
 // Connexion à la base de données
 $connexion = mysqli_connect($host, $login, $passwd, $database);
