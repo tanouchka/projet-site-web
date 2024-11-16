@@ -13,8 +13,8 @@ $database = "run";
 
 $mysqli = new mysqli($servername, $username, $passwords, $database);
 //$conn = new mysqli($servername, $username, $passwords, $database);
-// Récupérer la liste complète des jeux depuis la base de données
-$query = "SELECT * FROM entrainement";
+// Récupérer la liste complète d'utilisateyr depuis la base de données
+$query = "SELECT * FROM run";
 $resultat = $mysqli->query($query);
 ?>
 

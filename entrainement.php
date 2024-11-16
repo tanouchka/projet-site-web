@@ -27,6 +27,7 @@ if (!$con) {
     die("Connexion échouée : " . mysqli_connect_error());
 }
 
+$photo = ""; // Initialisation par défaut
 // Traitement du formulaire
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nom = mysqli_real_escape_string($con, $_POST['nom']);
@@ -34,8 +35,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $categorie = (int)$_POST['categorie'];
     $date = mysqli_real_escape_string($con, $_POST['date_et_heure']);
     $nombre = (int)$_POST['nombre_max_de_participants'];
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['ajouter_entrainement'])) {
+        $nom = mysqli_real_escape_string($con, $_POST['nom']);
+        $description = mysqli_real_escape_string($con, $_POST['description']);
+        $categorie = (int)$_POST['categorie'];
+        $date = mysqli_real_escape_string($con, $_POST['date_et_heure']);
+        $nombre = (int)$_POST['nombre_max_de_participants'];
+    
+        // Gestion de l'image
+        $photo = "";
+        if (isset($_FILES['photo']) && $_FILES['photo']['error'] == 0) {
+            // Dossier où les images seront enregistrées
+            $target_dir = "uploads/";
+            // Nom complet du fichier sur le serveur
+            $target_file = $target_dir . basename($_FILES['photo']['name']);
+            // Vérification du type de fichier
+            $file_type = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+    
+            // Vérifier si c'est une image autorisée
+            $allowed_types = ['jpg', 'jpeg', 'png', 'gif'];
+            if (in_array($file_type, $allowed_types)) {
+                // Déplacement du fichier téléchargé
+                if (move_uploaded_file($_FILES['photo']['tmp_name'], $target_file)) {
+                    $photo = $target_file; // Chemin de l'image enregistrée
+                } else {
+                    echo "<div class='error'>Erreur lors du téléchargement de l'image.</div>";
+                }
+            } else {
+                echo "<div class='error'>Type de fichier non autorisé. Seuls JPG, JPEG, PNG, et GIF sont autorisés.</div>";
+            }
+        }
+    }
 
-    $requete = "INSERT INTO entrainements (nom, description, categorie, date_et_heure, nombre_max_de_participants) VALUES ('$nom', '$description', '$categorie', '$date', '$nombre')";
+    $requete = "INSERT INTO entrainement (nom, description, categorie, date_et_heure, nombre_max_de_participants, photo) VALUES ('$nom', '$description', '$categorie', '$date', '$nombre', '$photo')";
 
     if (mysqli_query($con, $requete)) {
         echo "Entraînement ajouté avec succès !";
@@ -224,8 +256,10 @@ div.error {
             <option value="Expert">Expert</option>
         </select>
 
+        <label for="photo" id="label-photo">Image de l'entraînement :</label>
+        <input type="file" id="photo" name="photo" accept="image/*"><br><br>
+
         <input type="submit" id="submit-button" value="Ajouter">
     </form>
 </body>
 </html>
-
