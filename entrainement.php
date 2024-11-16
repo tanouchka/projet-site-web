@@ -21,6 +21,7 @@ $database = "run";
 
 $con = mysqli_connect($host, $login, $passwd, $database);
 
+
 // Vérification de la connexion
 if (!$con) {
     die("Connexion échouée : " . mysqli_connect_error());
@@ -32,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $description = mysqli_real_escape_string($con, $_POST['description']);
     $categorie = (int)$_POST['categorie'];
     $date = mysqli_real_escape_string($con, $_POST['date_et_heure']);
-    $nombre = mysqli_real_escape_string($con, string: $_POST['nombre_max_de_participants']);
+    $nombre = (int)$_POST['nombre_max_de_participants'];
 
     $requete = "INSERT INTO entrainements (nom, description, categorie, date_et_heure, nombre_max_de_participants) VALUES ('$nom', '$description', '$categorie', '$date', '$nombre')";
 
@@ -211,10 +212,10 @@ div.error {
         <textarea id="description" name="description"></textarea><br><br>
 
         <label for="nombre" id="label-duree">nombre max de participants :</label>
-        <input type="int" id="nombre" name="nombre" required><br><br>
+        <input type="int" id="nombre" name="nombre_max_de_participants" required><br><br>
 
         <label for="date" id="label-date">Date et heure :</label>
-        <input type="dateetheure" id="date" name="date" required><br><br>
+        <input type="datetime-local" id="date" name="date_et_heure" required><br><br>
 
         <label for="categorie" id="label-niveau">categorie :</label>
         <select id="categorie" name="categorie" required>
