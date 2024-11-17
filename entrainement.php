@@ -1,17 +1,4 @@
 
-// Démarre la session si elle n'est pas déjà démarrée
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-// Vérifie si l'utilisateur est connecté
-if (!isset($_SESSION['email'])) {
-    // Redirige vers la page de connexion si l'utilisateur n'est pas connecté
-    header("Location: connexion.php");
-    exit();
-}
-?>
-
 <?php
 // Connexion à la base de données
 $host = "localhost";

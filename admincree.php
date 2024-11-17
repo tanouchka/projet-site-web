@@ -45,7 +45,6 @@
     </style>
 </head>
 <body>
-<body>
     <h1>Transformer un utilisateur en administrateur</h1>
     
     <a href="admin.php">Retour à la Page précédente</a>

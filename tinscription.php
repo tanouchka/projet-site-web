@@ -26,6 +26,10 @@ $conn = new mysqli($servername, $username, $passwords, $database);
 
 
 
+// Vérification du domaine email autorisé
+if (strpos($email, '@groupe-esigelec.org') === false) {
+    die("Erreur : Seuls les étudiants de l'ESIGELEC sont autorisées à acceder a ce site .");
+}
 
 // Vérifier la connexion
 if ($conn->connect_error) {
