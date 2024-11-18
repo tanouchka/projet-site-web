@@ -5,79 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ma page transformation d'utilisateur</title>
     <style>
-        body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: skyblue;  
+    }
 
-header {
-    background-color: #007bff;
-    padding: 10px;
-    text-align: center;
-}
+    header {
+        background-color: #007bff;
+        padding: 10px;
+        text-align: center;
+    }
 
-header nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
+    header nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
 
-header nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
+    header nav ul li {
+        display: inline;
+        margin-right: 20px;
+    }
 
-header nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
+    header nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
 
-main {
-    padding: 20px;
-}
+    main {
+        padding: 20px;
+    }
 
-.activities-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-}
+    .activities-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
 
-.activity {
-    background-color: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+    .activity {
+        background-color: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-.activity h3 {
-    margin-top: 0;
-}
+    .activity h3 {
+        margin-top: 0;
+    }
 
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
     </style>
 </head>
 <?php
-// Démarre la session pour vérifier si l'utilisateur est connecté
 session_start();
 
-// Connexion à la base de données
 $servername = "localhost";
-$username = "root";  // Change ces valeurs selon tes paramètres
+$username = "root";  
 $password = "root";
 $database = "run";
 
-// Créer une connexion
 $conn = new mysqli($servername, $username, $password, $database);
 
 // Vérifier la connexion
@@ -100,13 +97,12 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>À propos - Activités Running</title>
-    <link rel="stylesheet" href="css/styles.css"> <!-- Assure-toi que le chemin vers le CSS est correct -->
-    <link rel="stylesheet" href="css/bootstrap.min.css"> <!-- Si tu utilises Bootstrap -->
+    <link rel="stylesheet" href="css/styles.css"> 
+    <link rel="stylesheet" href="css/bootstrap.min.css"> 
 </head>
 <body>
 
 
-    <!-- Contenu principal de la page -->
     <main>
         <section>
             <h1>À propos de notre site de Running</h1>

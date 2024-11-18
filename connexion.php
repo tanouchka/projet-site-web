@@ -5,24 +5,25 @@
             <title>Connexion</title>
             <style>
                 body {
-             font-family: Arial, sans-serif;
-             margin: 0;
-             padding: 0;
-             background-image: url('background other 2.0.png');
-             background-size: cover;
-             background-position: center;
-             background-repeat: no-repeat;
-             height: 100vh;
-             overflow: hidden;
-          }
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
+                    background-image: url('index.PNG');
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    height: 100vh;
+                    overflow: hidden;
+                }
     
-                        form {
+                form {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     justify-content: center;
                     height: 100vh; /* utilise 100% de la hauteur de la vue */
                     margin: 0; /* supprime les marges par défaut du corps de la page */
+                    
                 }
 
     
@@ -30,13 +31,17 @@
                     display: block;
                     margin-bottom: 10px;
                     text-align: center;
-                    color:black;
+                    color:white;
                 }
                 h1{
-                color:black;}
+                    color:white;
+                }
                 p{
-                color:black;
-                text-align: center;
+                    color:white;
+                    text-align: center;
+                }
+                a{
+                color:red;
                 }
                 input {
                     padding: 8px;
@@ -46,8 +51,16 @@
     
                 button {
                     padding: 10px;
-                    font-size: 16px;
+                    width: 90%; 
+                    max-width: 400px; 
+                    font-size: 1rem;
+                    border: none;
+                    border-radius: 5px;
+                    background-color: #007bff;
+                    color: white;
+                    cursor: pointer;
                 }
+                
     
                  /* Style pour l'icône mobile */
                 #result {
@@ -59,7 +72,7 @@
         
         <body>
             <h1>Authentification</h1>
-            <a href="accueil.php">Retour à la Page d'Accueil</a>
+            <a href="index.php">Retour à la Page d'Accueil</a>
     
             <P>saisissez vos informations</P>
             <form action="tconnexion.php"  method="POST" >

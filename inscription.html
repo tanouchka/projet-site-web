@@ -6,16 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
     <style>
-         body {
-         font-family: Arial, sans-serif;
-         margin: 0;
-         padding: 0;
-         background-image: url('background other 2.0.png');
-         background-size: cover;
-         background-position: center;
-         background-repeat: no-repeat;
-         height: 100vh;
-         overflow: hidden;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('index.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            overflow: hidden;
+        }
+        a{
+            color:red;
         }
         label{
             color:black;
@@ -29,7 +32,7 @@
         }
         label {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 10px
         }
         input {
             padding: 8px;
@@ -37,8 +40,16 @@
         }
         button {
             padding: 10px;
-            font-size: 16px;
+            width: 90%; 
+            max-width: 400px; 
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
         }
+
         #result {
             margin-top: 20px;
             color: green;
@@ -50,7 +61,7 @@
     <h1>Inscription</h1>
     
     <!-- Lien de retour vers la première page -->
-    <a href="accueil.php">Retour à la Page d'Accueil</a>
+    <a href="index.php">Retour à la Page d'Accueil</a>
     
     <form method="POST" action="tinscription.php">
 

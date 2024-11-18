@@ -1,4 +1,4 @@
-<?php
+<ul?php
     session_start();
 
     $message = null ;
@@ -19,11 +19,12 @@
   
   <title>Accueil</title>
   <style>
+   
       body {
          font-family: Arial, sans-serif;
          margin: 0;
          padding: 0;
-         background-image: url('background accueil.png');
+         background-color: skyblue;
          background-size: cover;
          background-position: center;
          background-repeat: no-repeat;
@@ -51,9 +52,10 @@
          max-width: 600px;
          height: 40vh;
          display: flex;
-         justify-content: space-between;
-         align-items: flex-start;
+         justify-content: space-evenly;  /* Espace uniforme entre les boutons */
+         align-items: center;  /* Centrage vertical des boutons */
          font-size: 4vw;
+         gap: 60px;  /* Espace entre chaque bouton */
       }
 
       button {    
@@ -68,10 +70,15 @@
          border-radius: 2vw; 
          box-shadow: 0 1vh #000000;
       }
+
+      button:hover {
+         background-color: #0056b3; /* Ajout d'un effet hover pour l'interaction */
+      }
+
       #result {
-                    margin-top: 20px;
-                    color: red;
-                }
+         margin-top: 20px;
+         color: red;
+      }
 
       @media (max-width: 600px) {
          .button-container {
@@ -84,24 +91,28 @@
 </head>
 <body>
    <main>
+
+   
+      <div class="running-section">
+         <h2>BIENVENUE SUR RUNNING</h2>
+      </div>
+
       <div class="button-container">
- 
          <a href="connexion.php"><button>S'authentifier</button></a> 
          <a href="inscription.html"><button>S'inscrire</button></a>
-         <a href="apropos.php"><button>A propos</button></a>
-   
-         <a href="admin.php"><button>admin</button></a>
-         <a href="membre.php"><button>membre</button></a>
       </div> 
-      <div class="game-section">
-         <h2>Jeux Populaires</h2>
-         <ul>
-            <li><img class="game-image" src="monopoly_image.jpg" alt="monopoly"><strong>-Monopoly</strong> </li>
-            <li><img class="game-image" src="ludo_image.jpg" alt="Ludo"><strong>-Ludo</strong> </li>
-            
-         </ul>
-         <p>Et bien d'autres encore... viens jouer avec nous</p>
+
+      <div class="running-section">
+         <img class="game-image" src="index.png" alt="Running Game">
       </div>
+
+      <div class="button-container">
+         <a href="apropos.php"><button>A propos</button></a>
+      </div>
+
+      <div class="running-section">
+         <p>Rejoignez-nous !!!</p>
+      </div>
+
    </main>
 </body>
-</html>

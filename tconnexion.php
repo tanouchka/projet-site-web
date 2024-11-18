@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             die('L\'email ne peut pas être vide.');
         }
 
-        $mysqli = connectDB(); // Connexion à la base de données
+        $mysqli = connectDB(); 
 
         // Préparation de la requête SQL avec une requête préparée pour éviter les injections SQL
         if ($stmt = $mysqli->prepare("SELECT password, statut FROM utilisateur WHERE email=?")) {
