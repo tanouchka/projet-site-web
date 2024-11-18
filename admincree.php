@@ -1,3 +1,8 @@
+<?php
+// Vérifier si l'utilisateur est connecté
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
