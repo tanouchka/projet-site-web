@@ -130,7 +130,7 @@ $resultat = $mysqli->query($query);
      <ul>
         <li><a href="entrainement.php">prendre en charge un entrainement</a></li>
         <li><a href="jeux_souhaitees.php">liste d'inscrits aux entrainements</a></li> <!--proposition de créneau dedans, annulation des créneaux(tout en prévénant le joueur dans ce cas) -->
-        <li><a href="admincree.php">creer un compte admin</a></li>
+        <li><a href="admincree.php">creer un compte admin //</a></li>
     
      </ul>
     </div>
