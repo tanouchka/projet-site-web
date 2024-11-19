@@ -1,23 +1,23 @@
 <?php
 // Démarre la session si elle n'est pas déjà démarrée
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+// if (session_status() === PHP_SESSION_NONE) {
+//     session_start();
+// }
 
 // Vérifie si l'utilisateur est connecté
-if (!isset($_SESSION['email'])) {
-    // Redirige vers la page de connexion si l'utilisateur n'est pas connecté
-    header("Location: connexion.php");
-    exit();
-}
-?>
+// if (!isset($_SESSION['email'])) {
+//     // Redirige vers la page de connexion si l'utilisateur n'est pas connecté
+//     header("Location: connexion.php");
+//     exit();
+// }
+// ?>
 
 <?php
 /// Connexion à la base de données
 $nom_serveur = "localhost";
-$utilisateur = "grp_7_10";
-$mot_de_passe = "D3UOxuGXIXUJih";
-$nom_base_donnée = "bdd_7_10";
+$utilisateur = "root";
+$mot_de_passe = "root";
+$nom_base_donnée = "run";
 
 $conn = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_donnée);
 
@@ -33,8 +33,8 @@ if (isset($_GET['id_entrainement'])) {
     // Requête pour récupérer les participants pour l'entraînement spécifique
     $query = "SELECT p.id_user, u.nom, u.prenom, e.nom AS entrainement_nom, p.date_inscription
               FROM participant p 
-              JOIN utilisateurs u ON p.id_user = u.email 
-              JOIN entrainements e ON p.id_entrainement = e.id_entrainement 
+              JOIN utilisateur u ON p.id_user = u.email 
+              JOIN entrainement e ON p.id_entrainement = e.id_entrainement 
               WHERE p.id_entrainement = '$id_entrainement'";
 
     $result = mysqli_query($conn, $query);
