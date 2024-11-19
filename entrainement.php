@@ -4,9 +4,9 @@
 session_start();
 
 $host = "localhost";
-$login = "grp_7_10"; 
-$passwd = "D3UOxuGXIXUJih"; 
-$database = "bdd_7_10"
+$login = "root"; 
+$passwd = "root"; 
+$database = "run";
 
 $con = mysqli_connect($host, $login, $passwd, $database);
 
