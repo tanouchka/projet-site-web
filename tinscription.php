@@ -12,9 +12,9 @@ $password = $_POST['password'];
 $statut = "membre";
 
 $servername = "localhost";
-$username = "grp_7_10"; 
-$passwords = "D3UOxuGXIXUJih"; 
-$database = "bdd_7_10";
+$username = "root"; 
+$passwords = "root"; 
+$database = "run";
 
 $conn = new mysqli($servername, $username, $passwords, $database);
 
