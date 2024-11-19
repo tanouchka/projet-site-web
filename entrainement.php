@@ -1,17 +1,16 @@
 
 <?php
-// Démarre la session
+
 session_start();
-// Connexion à la base de données
+
 $host = "localhost";
-$login = "root";
-$passwd = "root";
-$database = "run";
+$login = "grp_7_10"; 
+$passwd = "D3UOxuGXIXUJih"; 
+$database = "bdd_7_10"
 
 $con = mysqli_connect($host, $login, $passwd, $database);
 
 
-// Vérification de la connexion
 if (!$con) {
     die("Connexion échouée : " . mysqli_connect_error());
 }

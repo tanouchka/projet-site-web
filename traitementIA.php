@@ -5,11 +5,10 @@ $email = $_POST['email'];
 // Valeur du statut administrateur
 $nouveauStatut = "admin";
 
-// Informations de connexion à la base de données
 $servername = "localhost";
-$username = "root"; // L'utilisateur par défaut de MySQL dans XAMPP
-$passwords = "root"; // Mot de passe
-$database = "run";
+$username = "grp_7_10"; 
+$passwords = "D3UOxuGXIXUJih"; 
+$database = "bdd_7_10"
 
 // Créer une connexion
 $conn = new mysqli($servername, $username, $passwords, $database);
