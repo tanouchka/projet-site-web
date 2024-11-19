@@ -14,7 +14,7 @@ $statut = "membre";
 $servername = "localhost";
 $username = "grp_7_10"; 
 $passwords = "D3UOxuGXIXUJih"; 
-$database = "bdd_7_10"
+$database = "bdd_7_10";
 
 $conn = new mysqli($servername, $username, $passwords, $database);
 
