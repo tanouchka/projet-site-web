@@ -8,9 +8,9 @@ session_start();
 }*/
 
 $servername = "localhost";
-$username = "grp_7_10"; 
-$passwords = "D3UOxuGXIXUJih"; 
-$database = "bdd_7_10"
+$username = "root"; 
+$passwords = "root"; 
+$database = "run"
 
 $mysqli = new mysqli($servername, $username, $passwords, $database);
 //$conn = new mysqli($servername, $username, $passwords, $database);
