@@ -125,7 +125,7 @@ $resultat = $mysqli->query($query);
     <h1>bon retour!</h1>
     <p>Que souhaitez-vous faire?</p>
 
-    <!-- Liens vers les pages spécifiques pour les membres -->
+    
    <div>
      <ul>
         <li><a href="entrainement.php">prendre en charge un entrainement</a></li>
@@ -134,7 +134,7 @@ $resultat = $mysqli->query($query);
     
      </ul>
     </div>
-    <!-- Ajoutez le pied de page et tout autre contenu supplémentaire ici -->
+    
 
    
 <body></body>
