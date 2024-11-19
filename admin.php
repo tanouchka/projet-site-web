@@ -29,13 +29,13 @@ $resultat = $mysqli->query($query);
          font-family: Arial, sans-serif;
          margin: 0;
          padding: 0;
-         background-image: url('background other 2.0.png');
-         background-size: cover;
+         background-image: url('index.PNG');
+         background-size: center;
          background-position: center;
          background-repeat: no-repeat;
          height: 100vh;
          overflow: hidden;
-
+         background-color:skyblue;
         }
         header {
          text-align: center;
