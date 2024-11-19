@@ -9,7 +9,7 @@ session_start();
 $servername = "localhost";
 $username = "root"; 
 $passwords = "root"; 
-$database = "run"
+$database = "run";
 
 $mysqli = new mysqli($servername, $username, $passwords, $database);
 $query = "SELECT * FROM bdd_7_10";

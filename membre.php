@@ -10,7 +10,7 @@ session_start();
 $servername = "localhost";
 $username = "root"; 
 $passwords = "root"; 
-$database = "run"
+$database = "run";
 
 $mysqli = new mysqli($servername, $username, $passwords, $database);
 //$conn = new mysqli($servername, $username, $passwords, $database);
