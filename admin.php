@@ -1,5 +1,5 @@
 <?php
-// Vérifier si l'utilisateur est connecté
+
 session_start();
 /*if (!isset($_SESSION['id_utilisateur'])) {
     // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
@@ -7,14 +7,12 @@ session_start();
     exit();
 }*/
 $servername = "localhost";
-$username = "root";
-$passwords = "root";
-$database = "run";
+$username = "grp_7_10"; 
+$passwords = "D3UOxuGXIXUJih"; 
+$database = "bdd_7_10"
 
 $mysqli = new mysqli($servername, $username, $passwords, $database);
-//$conn = new mysqli($servername, $username, $passwords, $database);
-// Récupérer la liste complète d'utilisateyr depuis la base de données
-$query = "SELECT * FROM run";
+$query = "SELECT * FROM bdd_7_10";
 $resultat = $mysqli->query($query);
 ?>
 
@@ -25,7 +23,7 @@ $resultat = $mysqli->query($query);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page d'accueil admin</title>
-    <!-- Ajoutez des liens vers vos fichiers CSS et autres ressources ici -->
+    
     <style>
          body {
          font-family: Arial, sans-serif;
@@ -75,15 +73,7 @@ $resultat = $mysqli->query($query);
          box-shadow: 0 1vh #000000;
          padding: 10px;
         }
-        .game-section {
-         margin-top: 20px;
-         text-align: center;
-        }
-
-        .game-image {
-         max-width: 50px; /* Réduire davantage la largeur de l'image */
-         max-height: 50px; /* Réduire la hauteur de l'image */
-         margin: 5px; /* Ajouter une marge autour de l'image */
+    
         }
 
         @media (max-width: 600px) {
@@ -121,20 +111,19 @@ $resultat = $mysqli->query($query);
     </style>
 </head>
 <body>
-    <!-- Ajoutez l'en-tête de la page et tout autre élément de navigation ici -->
     <h1>bon retour!</h1>
     <p>Que souhaitez-vous faire?</p>
 
-    <!-- Liens vers les pages spécifiques pour les membres -->
+    
    <div>
      <ul>
         <li><a href="entrainement.php">prendre en charge un entrainement</a></li>
-        <li><a href="jeux_souhaitees.php">liste d'inscrits aux entrainements</a></li> <!--proposition de créneau dedans, annulation des créneaux(tout en prévénant le joueur dans ce cas) -->
+        <li><a href="modifications.php">liste d'inscrits aux entrainements</a></li> <!--proposition de créneau dedans, annulation des créneaux(tout en prévénant le joueur dans ce cas) -->
         <li><a href="admincree.php">creer un compte admin</a></li>
     
      </ul>
     </div>
-    <!-- Ajoutez le pied de page et tout autre contenu supplémentaire ici -->
+    
 
    
 <body></body>

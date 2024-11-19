@@ -2,9 +2,9 @@
 <?php
 
 $host = "localhost"; 
-$login = "root"; 
-$passwd = "root"; 
-$database = "run"; 
+$login = "grp_7_10"; 
+$passwd = "D3UOxuGXIXUJih"; 
+$database = "bdd_7_10"; 
 
 $connexion = mysqli_connect($host, $login, $passwd, $database);
 

@@ -25,7 +25,8 @@
          margin: 0;
          padding: 0;
          background-color: skyblue;
-         background-size: cover;
+         background-image: url('index1.PNG');
+         background-size: center;
          background-position: center;
          background-repeat: no-repeat;
          height: 100vh;
@@ -44,7 +45,7 @@
          align-items: center;
          justify-content: center;
          height: 100%;
-         color: white;
+         color: black;
       }
 
       .button-container {
@@ -56,6 +57,7 @@
          align-items: center;  /* Centrage vertical des boutons */
          font-size: 4vw;
          gap: 60px;  /* Espace entre chaque bouton */
+         margin: left;
       }
 
       button {    
@@ -71,9 +73,14 @@
          box-shadow: 0 1vh #000000;
       }
 
+      .bisous{
+         justify-items: space-between;
+      }
+
       button:hover {
          background-color: #0056b3; /* Ajout d'un effet hover pour l'interaction */
       }
+   
 
       #result {
          margin-top: 20px;
@@ -98,13 +105,9 @@
       </div>
 
       <div class="button-container">
-         <a href="connexion.php"><button>S'authentifier</button></a> 
+         <a href="connexion.php" class="bisous"><button>S'authentifier</button></a> 
          <a href="inscription.html"><button>S'inscrire</button></a>
       </div> 
-
-      <div class="running-section">
-         <img class="game-image" src="index.png" alt="Running Game">
-      </div>
 
       <div class="button-container">
          <a href="apropos.php"><button>A propos</button></a>

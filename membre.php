@@ -7,18 +7,15 @@ session_start();
     exit();
 }*/
 
-// Inclure la connexion à la base de données et d'autres fichiers nécessaires
-// include('connexion-bdd.php'); // Assurez-vous d'adapter le nom du fichier selon votre configuration
-// Connexion à la base de données
 $servername = "localhost";
-$username = "root";
-$passwords = "root";
-$database = "run";
+$username = "grp_7_10"; 
+$passwords = "D3UOxuGXIXUJih"; 
+$database = "bdd_7_10"
 
 $mysqli = new mysqli($servername, $username, $passwords, $database);
 //$conn = new mysqli($servername, $username, $passwords, $database);
 // Récupérer la liste complète des jeux depuis la base de données
-$query = "SELECT * FROM run";
+$query = "SELECT * FROM bdd_7_10";
 $resultat = $mysqli->query($query);
 ?>
 
@@ -79,16 +76,6 @@ $resultat = $mysqli->query($query);
          box-shadow: 0 1vh #000000;
          padding: 10px;
         }
-        .game-section {
-         margin-top: 20px;
-         text-align: center;
-        }
-
-        .game-image {
-         max-width: 50px; /* Réduire davantage la largeur de l'image */
-         max-height: 50px; /* Réduire la hauteur de l'image */
-         margin: 5px; /* Ajouter une marge autour de l'image */
-        }
 
         @media (max-width: 600px) {
          .button-container {
@@ -125,19 +112,18 @@ $resultat = $mysqli->query($query);
     </style>
 </head>
 <body>
-    <!-- Ajoutez l'en-tête de la page et tout autre élément de navigation ici -->
+   
     <h1>bon retour!</h1>
     <p>Que souhaitez-vous faire?</p>
 
     <!-- Liens vers les pages spécifiques pour les membres -->
     <ul>
 
-        <li><a href="choixjeu.php">acceder à la liste des entrainements</a></li>/*pouvoir s'inscrire se desinscrire*/
+        <li><a href="choix.php">acceder à la liste des entrainements</a></li>/*pouvoir s'inscrire se desinscrire*/
         <li><a href="historique.php">historique</a></li>
     
     </ul>
 
-    <!-- Ajoutez le pied de page et tout autre contenu supplémentaire ici -->
 
    
 <body>
