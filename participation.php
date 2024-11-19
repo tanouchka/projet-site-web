@@ -8,7 +8,7 @@ if (session_status() === PHP_SESSION_NONE) {
 if (!isset($_SESSION['email'])) {
     // Redirige vers la page de connexion si l'utilisateur n'est pas connecté
     header("Location: connexion.php");
-    exit();
+    exit();//
 }
 
 // Récupérer l'email de l'utilisateur connecté
